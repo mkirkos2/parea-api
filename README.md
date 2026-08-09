@@ -1,27 +1,49 @@
 # Parea API
 
-Phase 1 Laravel API foundation
+Current status:
+
+Phase 1 Laravel API foundation.
 
 ## Stack
+
 - PHP 8.5
 - Laravel 13
 - Laravel Sanctum
-- MySQL deployment target
-- SQLite for local/test foundation
+- MySQL as the intended deployment database
+- SQLite currently used for local/test foundation where configured
 
-## Current Endpoints
-- `GET /api/v1/health` - API health check
+## Implemented
 
-## Installation
+- Laravel API routing
+- API prefix /api/v1
+- GET /api/v1/health
+- JSON responses for unknown API routes
+- Sanctum foundation
+- automated foundation tests
 
-1. Copy environment file:
-   ```bash
-   cp .env.example .env
-   ```
+## Not yet implemented
 
-2. Install dependencies:
+- registration
+- login/logout endpoints
+- current-user profile endpoint
+- categories
+- events
+- participations
+- favorites
+- chat
+- reports
+- deployment configuration
+
+## Setup
+
+1. Install dependencies:
    ```bash
    composer install
+   ```
+
+2. Copy environment file:
+   ```bash
+   cp .env.example .env
    ```
 
 3. Generate application key:
@@ -29,22 +51,24 @@ Phase 1 Laravel API foundation
    php artisan key:generate
    ```
 
-4. Run migrations:
+4. Create/configure a local database
+
+5. Run migrations:
    ```bash
    php artisan migrate
    ```
 
-## Development
+6. Start local server:
+   ```bash
+   php artisan serve
+   ```
 
-Start local server:
-```bash
-php artisan serve
-```
+7. Run tests:
+   ```bash
+   php artisan test
+   ```
 
-Run tests:
-```bash
-php artisan test
-```
+## Validation
 
 Validate composer:
 ```bash
@@ -55,29 +79,6 @@ Audit composer:
 ```bash
 composer audit
 ```
-
-## API Response Conventions
-
-All API responses follow a consistent JSON structure:
-```json
-{
-  "data": {...}
-}
-```
-
-Error responses:
-```json
-{
-  "message": "Error description"
-}
-```
-
-## Status
-
-⚠️ Business-domain endpoints are not implemented yet
-
-✅ Phase 1: Laravel API foundation complete
-🔜 Phase 2: Authentication and user profile planned
 
 ## Security
 
