@@ -19,8 +19,8 @@ class HealthCheckTest extends TestCase
             ->assertJson([
                 'data' => [
                     'status' => 'ok',
-                    'application' => 'Parea API'
-                ]
+                    'application' => 'Parea API',
+                ],
             ])
             ->assertJsonMissing(['framework_version', 'php_version', 'environment']);
     }
@@ -37,7 +37,7 @@ class HealthCheckTest extends TestCase
         $response->assertStatus(404)
             ->assertHeader('content-type', 'application/json')
             ->assertJson([
-                'message' => 'Not found.'
+                'message' => 'Not found.',
             ])
             ->assertSee('Not found.')
             ->assertDontSee('<html')
